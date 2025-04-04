@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: apache
+  name: {{ .Values.appName }}
   labels:
-    app: apache
+    app: {{ .Values.appName }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: apache
+      app: {{ .Values.appName }}
   template:
     metadata:
       labels:
-        app: apache
+        app: {{ .Values.appName }}
     spec:
       containers:
-      - name: apache
-        image: httpd:alpine
+      - name: {{ .Values.appName }}
+        image: {{ .Values.image.name }}
         ports:
         - containerPort: 80
 ---
@@ -27,7 +27,7 @@ metadata:
 spec: 
   type: NodePort
   selector:
-    app: apache
+    app: {{ .Values.appName }}
   ports:
     - protocol: TCP
       port: 80

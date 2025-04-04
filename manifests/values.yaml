@@ -8,5 +8,4 @@ configmap:
     header: 'This app was also deployed with helm! How nice.'
 
 image:
-  name: devopsjourney1/mywebapp
-  tag: latest
+  name: httpd:alpine
