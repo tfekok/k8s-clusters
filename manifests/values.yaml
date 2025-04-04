@@ -1,0 +1,12 @@
+appName: apache
+
+port: 81
+
+configmap:
+  name: apache-configmap-v1
+  data:
+    header: 'This app was also deployed with helm! How nice.'
+
+image:
+  name: devopsjourney1/mywebapp
+  tag: latest
